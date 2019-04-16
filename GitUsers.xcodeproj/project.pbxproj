@@ -11,10 +11,11 @@
 		B62CE6412265FA5E00912E56 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6402265FA5E00912E56 /* JSONHelper.swift */; };
 		B62CE6432265FBF100912E56 /* GithubAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6422265FBF100912E56 /* GithubAPIHelper.swift */; };
 		B62CE6452265FEE200912E56 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6442265FEE200912E56 /* UsersManager.swift */; };
+		B652012B22663F3100FABE74 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652012A22663F3100FABE74 /* UsersViewModel.swift */; };
+		B652012D226641FB00FABE74 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652012C226641FB00FABE74 /* UsersViewController.swift */; };
 		B66F9FDA2265F08E0031B5B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F9FD92265F08E0031B5B7 /* User.swift */; };
 		B6E66B382265F71D00712383 /* Pods_GitUsers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E66B372265F71D00712383 /* Pods_GitUsers.framework */; };
 		B6E8CD5E2265EDB5002380D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8CD5D2265EDB5002380D1 /* AppDelegate.swift */; };
-		B6E8CD602265EDB5002380D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8CD5F2265EDB5002380D1 /* ViewController.swift */; };
 		B6E8CD632265EDB5002380D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E8CD612265EDB5002380D1 /* Main.storyboard */; };
 		B6E8CD652265EDB6002380D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E8CD642265EDB6002380D1 /* Assets.xcassets */; };
 		B6E8CD682265EDB6002380D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E8CD662265EDB6002380D1 /* LaunchScreen.storyboard */; };
@@ -46,11 +47,12 @@
 		B62CE6402265FA5E00912E56 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B62CE6422265FBF100912E56 /* GithubAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIHelper.swift; sourceTree = "<group>"; };
 		B62CE6442265FEE200912E56 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		B652012A22663F3100FABE74 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		B652012C226641FB00FABE74 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		B66F9FD92265F08E0031B5B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6E66B372265F71D00712383 /* Pods_GitUsers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_GitUsers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E8CD5A2265EDB5002380D1 /* GitUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E8CD5D2265EDB5002380D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6E8CD5F2265EDB5002380D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6E8CD622265EDB5002380D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6E8CD642265EDB6002380D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6E8CD672265EDB6002380D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		B66F9FD82265F0560031B5B7 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				B652012A22663F3100FABE74 /* UsersViewModel.swift */,
+				B652012C226641FB00FABE74 /* UsersViewController.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -173,7 +177,6 @@
 				B66F9FD72265F03E0031B5B7 /* View */,
 				B66F9FD62265F0360031B5B7 /* Model */,
 				B6E8CD5D2265EDB5002380D1 /* AppDelegate.swift */,
-				B6E8CD5F2265EDB5002380D1 /* ViewController.swift */,
 				B6E8CD612265EDB5002380D1 /* Main.storyboard */,
 				B6E8CD642265EDB6002380D1 /* Assets.xcassets */,
 				B6E8CD662265EDB6002380D1 /* LaunchScreen.storyboard */,
@@ -446,11 +449,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6E8CD602265EDB5002380D1 /* ViewController.swift in Sources */,
 				B62CE63F2265F92400912E56 /* RealmHelper.swift in Sources */,
 				B6E8CD5E2265EDB5002380D1 /* AppDelegate.swift in Sources */,
 				B66F9FDA2265F08E0031B5B7 /* User.swift in Sources */,
 				B62CE6412265FA5E00912E56 /* JSONHelper.swift in Sources */,
+				B652012B22663F3100FABE74 /* UsersViewModel.swift in Sources */,
+				B652012D226641FB00FABE74 /* UsersViewController.swift in Sources */,
 				B62CE6432265FBF100912E56 /* GithubAPIHelper.swift in Sources */,
 				B62CE6452265FEE200912E56 /* UsersManager.swift in Sources */,
 			);

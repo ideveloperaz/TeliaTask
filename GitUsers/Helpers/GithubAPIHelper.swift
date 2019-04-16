@@ -19,16 +19,16 @@ struct GithubAPIHelper {
     
     public static let shared = GithubAPIHelper()
     
-    /// Fetches all users written in Swift
-    public func fetchUsers(completion callback: @escaping ((_ repos: [User], _ error: String?) -> Void)) {
+    // Fetches all users written in Swift
+    public func fetchUsers(usersPerPage perPage: Int, LastId since: Int, completion callback: @escaping ((_ repos: [User], _ error: String?) -> Void)) {
         var error: String?
         var users: [User] = []
         
         let urlStr = HOST + USERS_ENDPOINT
         
         let parameters: Parameters = [
-            "per_page":"10",
-            "since":"0"
+            "per_page":String(perPage),
+            "since":String(since)
         ]
         
         Alamofire.request(urlStr, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)

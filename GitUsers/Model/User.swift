@@ -11,8 +11,8 @@ import RealmSwift
 
 class User: Object
 {
-    dynamic var id: Int32 = -1
-    dynamic var login: String = ""
+    @objc dynamic var id: Int32 = -1
+    @objc dynamic var login: String = ""
     
     override func isEqual(_ object: Any?) -> Bool {
         guard object is User else {

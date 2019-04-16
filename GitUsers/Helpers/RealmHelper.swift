@@ -17,16 +17,19 @@ struct RealmHelper
     
     public static let shared = RealmHelper()
     
+    // Loads users from realm
     public func loadUsers() -> [User] {
         return Array(realm.objects(User.self))
     }
     
-    public func addNewUser(repo: User) {
+    // Add new user to realm
+    public func addNewUser(user: User) {
         try! realm.write {
-            realm.add(repo)
+            realm.add(user)
         }
     }
     
+    // Removes all users from realm
     public func clearAllUsers() {
         try! realm.write {
             realm.delete(realm.objects(User.self))
