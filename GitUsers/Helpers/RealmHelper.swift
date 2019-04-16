@@ -19,7 +19,7 @@ struct RealmHelper
     
     // Loads users from realm
     public func loadUsers() -> [User] {
-        return Array(realm.objects(User.self))
+        return Array(realm.objects(User.self).sorted(byKeyPath: "id"))
     }
     
     // Add new user to realm

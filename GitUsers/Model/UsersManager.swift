@@ -46,7 +46,9 @@ class UsersManager {
                 
                 callback(users)
                 
-                self.lastId = self.lastId + self.usersPerPage
+                if let lastUser = users.last {
+                    self.lastId = Int(lastUser.id)
+                }
             })
         } else {
             // Load local data
@@ -56,7 +58,9 @@ class UsersManager {
                 // No local data available. Need to load from remote source.
                 loadUsers(online: true, completion: callback)
             } else {
-                self.lastId = users.count
+                if let lastUser = users.last {
+                    self.lastId = Int(lastUser.id)
+                }
                 callback(realmHelper.loadUsers())
             }
         }
