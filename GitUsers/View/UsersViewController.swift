@@ -14,7 +14,7 @@ class UsersViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel = UsersViewModel()
+    let viewModel = UsersViewModel(manager: UsersManager.shared)
     var users: [User] = []
     var disposeBag = DisposeBag()
     
@@ -65,7 +65,7 @@ class UsersViewController: UIViewController, UITableViewDelegate {
         cell.textLabel?.text = element.login
     }
     
-    // Table delegate tso init loading next portion of data 
+    // Table delegate to init loading next portion of data 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.showingUserByIndex(userIndex: indexPath.row)
     }

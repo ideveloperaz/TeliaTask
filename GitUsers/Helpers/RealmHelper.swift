@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-struct RealmHelper
+struct RealmHelper: StorageProtocol
 {
     let realm = try! Realm()
     

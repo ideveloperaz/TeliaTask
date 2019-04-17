@@ -7,24 +7,35 @@
 //
 
 import Foundation
+import RealmSwift
 
 /// MARK: - struct that manages all data
-class UsersManager {
-    private let apiClient = GithubAPIHelper.shared
-    private let realmHelper = RealmHelper.shared
+class UsersManager: EntitiesManagerProtocol {    
+    static var isLoading = false
+    private let apiClient: APIProtocol
+    private let storageHelper: StorageProtocol
     private let usersPerPage = 50
     private var lastId = 0;
     
-    private init() {}
+    private init(ApiClient: APIProtocol, StorageClient: StorageProtocol) {
+        apiClient = ApiClient
+        storageHelper = StorageClient
+    }
     
-    public static let shared = UsersManager()
+    public static let shared = UsersManager(ApiClient: GithubAPIHelper.shared, StorageClient: RealmHelper.shared)
     
     public func reload()
     {
         lastId = 0
     }
     
-    public func loadUsers(online: Bool, completion callback: @escaping ((_ repos: [User]) -> Void)) {
+    public func loadItems(online: Bool, completion callback: @escaping ((_ repos: [Object]) -> Void)) {
+        if UsersManager.isLoading {
+            return
+        }
+        
+        UsersManager.isLoading = true
+        
         if online {
             // Force to load remote data source.
             apiClient.fetchUsers(usersPerPage: usersPerPage, LastId: lastId,  completion: {
@@ -37,11 +48,11 @@ class UsersManager {
                 
                 // Clear old data and save new data into realm database.
                 if self.lastId == 0 {
-                    self.realmHelper.clearAllUsers()
+                    self.storageHelper.clearAllUsers()
                 }
                 
                 for user in users {
-                    self.realmHelper.addNewUser(user: user)
+                    self.storageHelper.addNewUser(user: user)
                 }
                 
                 callback(users)
@@ -49,19 +60,22 @@ class UsersManager {
                 if let lastUser = users.last {
                     self.lastId = Int(lastUser.id)
                 }
+                
+                UsersManager.isLoading = false
             })
         } else {
             // Load local data
-            let users = realmHelper.loadUsers()
-            
+            let users = storageHelper.loadUsers()
+            UsersManager.isLoading = false
+
             if users.count == 0 {
                 // No local data available. Need to load from remote source.
-                loadUsers(online: true, completion: callback)
+                loadItems(online: true, completion: callback)
             } else {
                 if let lastUser = users.last {
                     self.lastId = Int(lastUser.id)
                 }
-                callback(realmHelper.loadUsers())
+                callback(storageHelper.loadUsers())
             }
         }
     }

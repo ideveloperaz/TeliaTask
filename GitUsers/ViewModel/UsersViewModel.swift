@@ -10,11 +10,12 @@ import Foundation
 import RxSwift
 
 class UsersViewModel {
-    let usersManager = UsersManager.shared
+    let usersManager: EntitiesManagerProtocol
     var users = Variable<[User]>([])
     var usersCache: [User] = []
     
-    init() {
+    init(manager: EntitiesManagerProtocol) {
+        usersManager = manager
         // Load users
         loadUsers(online: false)
     }
@@ -23,20 +24,20 @@ class UsersViewModel {
     func loadUsers(online: Bool) {
         self.usersManager.reload();
         
-        self.usersManager.loadUsers(online: online, completion: {
+        self.usersManager.loadItems(online: online, completion: {
             result in
-            self.users.value = result
-            self.usersCache = result
+            self.users.value = result as! [User]
+            self.usersCache = result as! [User]
         })
     }
 
     // willDisplayCell use it to load next portion of data when last cell reached
     func showingUserByIndex(userIndex index: Int) {
         if usersCache.count == index + 1 {
-            self.usersManager.loadUsers(online: true, completion: {
+            self.usersManager.loadItems(online: true, completion: {
                 result in
-                self.users.value.append(contentsOf: result)
-                self.usersCache.append(contentsOf: result)
+                self.users.value.append(contentsOf: result as! [User])
+                self.usersCache.append(contentsOf: result as! [User])
             })
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct GithubAPIHelper {
+struct GithubAPIHelper: APIProtocol {
     let HOST = "https://api.github.com/"
     let USERS_ENDPOINT = "users"
     

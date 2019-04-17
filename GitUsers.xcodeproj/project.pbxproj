@@ -11,6 +11,9 @@
 		B62CE6412265FA5E00912E56 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6402265FA5E00912E56 /* JSONHelper.swift */; };
 		B62CE6432265FBF100912E56 /* GithubAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6422265FBF100912E56 /* GithubAPIHelper.swift */; };
 		B62CE6452265FEE200912E56 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62CE6442265FEE200912E56 /* UsersManager.swift */; };
+		B64C86462266DC1F00CAA8FB /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C86452266DC1F00CAA8FB /* APIProtocol.swift */; };
+		B64C86482266DC3300CAA8FB /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C86472266DC3300CAA8FB /* StorageProtocol.swift */; };
+		B64C864A2266DE8A00CAA8FB /* EntitiesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C86492266DE8A00CAA8FB /* EntitiesManagerProtocol.swift */; };
 		B652012B22663F3100FABE74 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652012A22663F3100FABE74 /* UsersViewModel.swift */; };
 		B652012D226641FB00FABE74 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652012C226641FB00FABE74 /* UsersViewController.swift */; };
 		B66F9FDA2265F08E0031B5B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F9FD92265F08E0031B5B7 /* User.swift */; };
@@ -47,6 +50,9 @@
 		B62CE6402265FA5E00912E56 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B62CE6422265FBF100912E56 /* GithubAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIHelper.swift; sourceTree = "<group>"; };
 		B62CE6442265FEE200912E56 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		B64C86452266DC1F00CAA8FB /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		B64C86472266DC3300CAA8FB /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		B64C86492266DE8A00CAA8FB /* EntitiesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesManagerProtocol.swift; sourceTree = "<group>"; };
 		B652012A22663F3100FABE74 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		B652012C226641FB00FABE74 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		B66F9FD92265F08E0031B5B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -122,6 +128,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		B64C864B2266E64A00CAA8FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B64C86452266DC1F00CAA8FB /* APIProtocol.swift */,
+				B64C86472266DC3300CAA8FB /* StorageProtocol.swift */,
+				B64C86492266DE8A00CAA8FB /* EntitiesManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		B66F9FD62265F0360031B5B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,17 +150,17 @@
 		B66F9FD72265F03E0031B5B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B652012C226641FB00FABE74 /* UsersViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		B66F9FD82265F0560031B5B7 /* ModelView */ = {
+		B66F9FD82265F0560031B5B7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				B652012A22663F3100FABE74 /* UsersViewModel.swift */,
-				B652012C226641FB00FABE74 /* UsersViewController.swift */,
 			);
-			path = ModelView;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B6E8CD512265EDB5002380D1 = {
@@ -172,8 +188,9 @@
 		B6E8CD5C2265EDB5002380D1 /* GitUsers */ = {
 			isa = PBXGroup;
 			children = (
+				B64C864B2266E64A00CAA8FB /* Protocols */,
 				B62CE63D2265F8F000912E56 /* Helpers */,
-				B66F9FD82265F0560031B5B7 /* ModelView */,
+				B66F9FD82265F0560031B5B7 /* ViewModel */,
 				B66F9FD72265F03E0031B5B7 /* View */,
 				B66F9FD62265F0360031B5B7 /* Model */,
 				B6E8CD5D2265EDB5002380D1 /* AppDelegate.swift */,
@@ -453,9 +470,12 @@
 				B6E8CD5E2265EDB5002380D1 /* AppDelegate.swift in Sources */,
 				B66F9FDA2265F08E0031B5B7 /* User.swift in Sources */,
 				B62CE6412265FA5E00912E56 /* JSONHelper.swift in Sources */,
+				B64C86462266DC1F00CAA8FB /* APIProtocol.swift in Sources */,
 				B652012B22663F3100FABE74 /* UsersViewModel.swift in Sources */,
 				B652012D226641FB00FABE74 /* UsersViewController.swift in Sources */,
+				B64C86482266DC3300CAA8FB /* StorageProtocol.swift in Sources */,
 				B62CE6432265FBF100912E56 /* GithubAPIHelper.swift in Sources */,
+				B64C864A2266DE8A00CAA8FB /* EntitiesManagerProtocol.swift in Sources */,
 				B62CE6452265FEE200912E56 /* UsersManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
